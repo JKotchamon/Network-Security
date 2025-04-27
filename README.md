@@ -272,10 +272,15 @@ alert ip 192.168.1.100 any -> any any (msg:"Traffic from 192.168.1.100 detected"
 
 ## 📚 Further Practice
 
-- Practice capturing traffic with TCPdump and Wireshark.
-- Analyze packet structure, flags, and sessions.
-- Configure basic Snort rules for intrusion detection.
-- Review common protocols and services on different ports.
+## Additional Practice Resources
+
+- [Malware Traffic Analysis - Sample PCAP Files](https://www.malware-traffic-analysis.net/)
+- [Chris Sanders - Packet Captures Collection](https://chrissanders.org/packet-captures/)
+- [Chris Sanders - Packets GitHub Repository](https://github.com/chrissanders/packets)
+- [Wireshark Wiki - Sample Captures](https://wiki.wireshark.org/SampleCaptures)
+- [Netresec - PCAP Files for Download](https://www.netresec.com/?page=PcapFiles)
+- [Zeek GitHub - Test Packet Traces](https://github.com/zeek/zeek/tree/master/testing/btest/Traces)
+- [Security Onion - PCAP Datasets](https://docs.securityonion.net/en/2.4/pcaps.html)
 
 ---
 
