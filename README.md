@@ -266,7 +266,7 @@ alert ip 192.168.1.100 any -> any any (msg:"Traffic from 192.168.1.100 detected"
 
 ## Online Snort Rule Generator
 
-- [Snopy - Snort Rule Generator]([https://snopyta.org/snort-rule-generator](https://snorpy.cyb3rs3c.net/))
+- [Snorpy - Snort Rule Generator](https://snorpy.cyb3rs3c.net/)
 
 ---
 
