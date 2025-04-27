@@ -139,7 +139,60 @@ This project is a basic summary and practice about fundamental concepts in Netwo
 ## 8. Wireshark
 
 A GUI-based network protocol analyzer used for network troubleshooting, analysis, and software development.
+## Useful Wireshark Display Filters
 
+- `ip.addr == <IP>`  
+  Capture packets related to a specific IP address.
+
+- `http.request`  
+  Filter only HTTP requests.
+
+- `http contains "service"`  
+  Search for HTTP packets containing the keyword `service`.
+
+- `http.request.method == "POST"`  
+  Filter HTTP POST method requests.
+
+- `http.request.uri contains "audioeg"`  
+  Search for specific URIs that contain the word `audioeg`.
+
+- `dns.flags.response == 0`  
+  Show only DNS queries (requests, not responses).
+
+---
+
+## Wireshark Statistics
+
+- **Capture File Properties**  
+  View general properties of the capture file.
+
+- **Protocol Hierarchy**  
+  Analyze the breakdown of protocols seen in the capture.
+
+- **Conversations**  
+  View communication sessions between endpoints.
+
+- **Follow Stream**  
+  Follow TCP or HTTP streams to view full conversations, especially useful for analyzing encrypted payloads.
+
+---
+
+## Exporting and Analyzing Malicious Files
+
+1. **Export file from stream** (e.g., export HTTP objects).
+2. **Check file type**:
+    ```bash
+    file <filename>
+    ```
+3. **Generate SHA-256 hash**:
+    ```bash
+    sha256sum <filename>
+    ```
+4. **Scan or investigate the file using online tools**:
+    - [VirusTotal](https://www.virustotal.com/gui/home/search)
+    - [Abuse Bazaar](https://bazaar.abuse.ch/browse/)
+    - [DomainTools Whois Lookup](https://whois.domaintools.com/)
+    - [CyberChef (GCHQ)](https://gchq.github.io/CyberChef/)
 ---
 
 ## 9. Snort
