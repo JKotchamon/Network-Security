@@ -159,8 +159,6 @@ A GUI-based network protocol analyzer used for network troubleshooting, analysis
 - `dns.flags.response == 0`  
   Show only DNS queries (requests, not responses).
 
----
-
 ## Wireshark Statistics
 
 - **Capture File Properties**  
@@ -174,8 +172,6 @@ A GUI-based network protocol analyzer used for network troubleshooting, analysis
 
 - **Follow Stream**  
   Follow TCP or HTTP streams to view full conversations, especially useful for analyzing encrypted payloads.
-
----
 
 ## Exporting and Analyzing Malicious Files
 
@@ -198,7 +194,21 @@ A GUI-based network protocol analyzer used for network troubleshooting, analysis
 ## 9. Snort
 
 An open-source network intrusion detection and prevention system capable of real-time traffic analysis and packet logging.
+# Snort Practice and Rules
 
+## Common Snort Commands
+
+```bash
+      sudo snort -T -c /etc/snort/snort.conf
+      sudo snort -i enp0s3
+      sudo snort -i enp0s3 -e
+      sudo snort -i enp0s3 -d
+      sudo snort -i enp0s3 -X
+      sudo snort -i enp0s3 -l /var/log/snort
+      sudo snort -i enp0s3 -l .
+      sudo snort -r snort.log.1745581950
+      sudo tcpdump -r snort.log.1745581950
+```
 ---
 
 ## 📚 Further Practice
