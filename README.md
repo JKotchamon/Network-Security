@@ -194,21 +194,80 @@ A GUI-based network protocol analyzer used for network troubleshooting, analysis
 ## 9. Snort
 
 An open-source network intrusion detection and prevention system capable of real-time traffic analysis and packet logging.
-# Snort Practice and Rules
 
-## Common Snort Commands
+# Snort Basic Usage and Helpful Commands
+
+## Test Snort Configuration
 
 ```bash
-      sudo snort -T -c /etc/snort/snort.conf
-      sudo snort -i enp0s3
-      sudo snort -i enp0s3 -e
-      sudo snort -i enp0s3 -d
-      sudo snort -i enp0s3 -X
-      sudo snort -i enp0s3 -l /var/log/snort
-      sudo snort -i enp0s3 -l .
-      sudo snort -r snort.log.1745581950
-      sudo tcpdump -r snort.log.1745581950
+sudo snort -T -c /etc/snort/snort.conf
 ```
+
+## Run Snort to Monitor Interface
+
+```bash
+sudo snort -i enp0s3
+```
+
+## Useful Snort Options
+
+```bash
+sudo snort -i enp0s3 -e       # Display TCP headers, TTL
+sudo snort -i enp0s3 -d       # Display payload (ASCII)
+sudo snort -i enp0s3 -X       # Display packet data (hex and ASCII)
+sudo snort -i enp0s3 -l /var/log/snort  # Log packets to directory
+sudo snort -i enp0s3 -l .     # Log packets to current directory
+sudo snort -q -A console -i enp0s3  # Run quietly and output to console
+```
+
+## Analyze Captured Files
+
+```bash
+sudo snort -r snort.log.1745581950
+sudo tcpdump -r snort.log.1745581950
+```
+
+## Basic Snort Rule Syntax
+
+```
+action protocol source_ip source_port -> dest_ip dest_port (rule options)
+```
+
+- Actions: alert, log, pass, drop, reject
+- Protocols: ip, tcp, udp, icmp
+- Direction: -> (one-way)
+
+## Example Rules
+
+**Detect ICMP to 8.8.8.8**
+```
+alert icmp any any -> 8.8.8.8 any (msg:"ICMP traffic to 8.8.8.8 detected"; sid:1000001; rev:1;)
+```
+
+**Detect URI Access `/admin`**
+```
+alert tcp any any -> any 80 (msg:"Suspicious URI Detected"; uricontent:"/admin"; sid:1000002; rev:1;)
+```
+
+**Detect HTTP 401 Unauthorized (http_stat_code)**
+```
+alert tcp any any -> any 80 (msg:"HTTP 401 Unauthorized detected"; content:"HTTP/1.1 401"; http_stat_code; sid:1000003; rev:1;)
+```
+
+**Detect Suspicious HTTP Header (User-Agent)**
+```
+alert tcp any any -> any 80 (msg:"Suspicious User-Agent"; content:"User-Agent: EvilBot"; http_header; sid:1000004; rev:1;)
+```
+
+**Detect Specific IP Traffic (192.168.1.100)**
+```
+alert ip 192.168.1.100 any -> any any (msg:"Traffic from 192.168.1.100 detected"; sid:1000005; rev:1;)
+```
+
+## Online Snort Rule Generator
+
+- [Snopy - Snort Rule Generator]([https://snopyta.org/snort-rule-generator](https://snorpy.cyb3rs3c.net/))
+
 ---
 
 ## 📚 Further Practice
