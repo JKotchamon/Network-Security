@@ -101,28 +101,28 @@ This project is a basic summary and practice about fundamental concepts in Netwo
 - **Capture packets on a specific interface:**
   ```bash
   sudo tcpdump -i eth0
-** Display captured packets in ASCII readable format
+- ** Display captured packets in ASCII readable format
 sudo tcpdump -A
 
-** Limit capture to first N packets (e.g., 100 packets)
+- **Limit capture to first N packets (e.g., 100 packets)
 sudo tcpdump -c 100
 
-** Capture only TCP SYN packets (detect scans or connection attempts)
+- **Capture only TCP SYN packets (detect scans or connection attempts)
 sudo tcpdump 'tcp[tcpflags] & tcp-syn != 0'
 
-** Display timestamps for each packet when reading a file
+- **Display timestamps for each packet when reading a file
 tcpdump -r <filename.pcap> -tt
 
-** Filter packets by port and IP, then search for suspicious files like .exe or .dll
+- **Filter packets by port and IP, then search for suspicious files like .exe or .dll
 tcpdump -r <filename.pcap> -tt port <port-number> and host <IP> | grep -E "\.exe|\.dll"
 
-** Search for HTTP POST requests in captured data
+- **Search for HTTP POST requests in captured data
 tcpdump -r <filename.pcap> -tt -n | grep "POST"
 
-** Extract and list only IP addresses from TCP traffic
+- **Extract and list only IP addresses from TCP traffic
 tcpdump -r <filename.pcap> -tt -n tcp | cut -d " " -f 3 | cut -d "." -f 1-4
 
-** Find and list unique User-Agent strings from HTTP traffic
+- **Find and list unique User-Agent strings from HTTP traffic
 tcpdump -A -nn -r <filename.pcap> port <port-number> | grep -i "User-Agent:" | sort | uniq
 
 
