@@ -130,8 +130,8 @@ This project is a basic summary and practice about fundamental concepts in Netwo
    tcpdump -r <filename.pcap> -tt -n tcp | cut -d " " -f 3 | cut -d "." -f 1-4
 
 - Find and list unique User-Agent strings from HTTP traffic
- ```bash
-tcpdump -A -nn -r <filename.pcap> port <port-number> | grep -i "User-Agent:" | sort | uniq
+  ```bash
+  tcpdump -A -nn -r <filename.pcap> port <port-number> | grep -i "User-Agent:" | sort | uniq
 
 
 ---
